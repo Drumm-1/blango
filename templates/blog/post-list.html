@@ -1,0 +1,17 @@
+{% load blog_extras %}
+
+{% row %}
+  <div class="col">
+    <h4>{{ title }}</h4>
+    <ul class="list-unstyled">
+      {% for post in posts %}
+        <li>
+          <a href="{% url 'blog-post-detail' post.slug %}">{{ post.title }}</a>
+        </li>
+      {% empty %}
+        <li>No posts available.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endrow %}
+

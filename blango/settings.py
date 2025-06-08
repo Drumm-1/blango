@@ -44,6 +44,8 @@ class Dev(Configuration):
     
     DJANGO_ADMINS="James,jamyj11@gmail.com"
 
+    INTERNAL_IPS =["192.168.10.92"]
+
     # Application definition
 
     INSTALLED_APPS = [
@@ -56,9 +58,11 @@ class Dev(Configuration):
         'blog',
         'crispy_forms',
         'crispy_bootstrap5',
+        'debug_toolbar',
     ]
 
     MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
@@ -66,6 +70,8 @@ class Dev(Configuration):
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
         'django.middleware.clickjacking.XFrameOptionsMiddleware',
+        
+
     ]
 
     ROOT_URLCONF = 'blango.urls'
